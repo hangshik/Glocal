@@ -25,7 +25,7 @@ function success(){
     re.textContent ="축하합니다. 성공하였습니다."
   } else {
     if(success_ck){
-      re.textContent ="게임중입니다. 녹색을 선택하여 이동하십시오."
+      re.textContent ="게임중입니다."
     } else {
       re.textContent ="더 이상 갈 곳이 없습니다."
     }
