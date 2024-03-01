@@ -1,30 +1,3 @@
-// 화명 해상도 크기 구함
-function getDisplayInfo() {
-  var size = {
-    width: window.innerWidth || document.body.clientWidth,
-    height: window.innerHeight || document.body.clientHeight
-  }
-  return size;
-}
-
-
-// function bg(bl1,bl2) {
-//   success_ck=false;
-//   for(i=0;i<b1*b2;i++){
-//   if (list[i]===1){
-//     document.getElementById(i).style.backgroundColor="skyblue";
-//   } else {
-//     if((((parseInt(i/b2)-bl2)**2 + (i%b2-bl1)**2)==5)){
-//       document.getElementById(i).style.backgroundColor="green";
-//       success_ck=true;
-//     } else {
-//       document.getElementById(i).style.backgroundColor="#dddddd";
-//     }
-//   }
-//   document.getElementById(bl1+bl2*b2).style.backgroundColor="red";
-// }
-// }
-
 function bg(bb) {
   success_ck=false;
   for(i=0;i<22;i++){
@@ -42,7 +15,6 @@ function bg(bb) {
 }
 }
 
-// path=[2,3,[4,5]];
 
 let count = 1;
 
@@ -68,7 +40,7 @@ path=[[14,15,21],[2,4,8],[1,4,6,7,9,10],[10,14,15,16],[1,2],[6,10,18],[2,5,7,10]
 
 
 function clickbt(j) {
-  if(list[j]==0){
+  if(Math.max(...list)==0 || (list[j]==0 && path[parseInt(last_j)].includes(j))){
     const element = document.getElementById(j);
     element.innerText = jn_name[j]+number;
     list_number[j] = number;
@@ -77,28 +49,28 @@ function clickbt(j) {
     bg(j);
   } else {
     if(list_number[j]==number-1){
-      if(list_number.indexOf(number-2)==0){
-        main()
-      } else{
-        const element = document.getElementById(j);
-        element.innerText = jn_name[j];
-        list_number[j]=0;
-        number--;
-        list[j]=0;
-        bg(list_number.indexOf(number-1));
-      }
+      const element = document.getElementById(j);
+      element.innerText = jn_name[j];
+      list_number[j]=0;
+      number--;
+      list[j]=0;
+      bg(list_number.indexOf(number-1));
     }
-
   }
-  success();
-  let re1 = document.getElementById("aaa");
-  re1.textContent =list
-  let re2 = document.getElementById("bbb");
-  re2.textContent =list_number
-  let re3 = document.getElementById("ccc");
-  re3.textContent =list_number.indexOf(number-1)
-}
 
+  if(Math.max(...list)==0){
+    main()
+  }
+  last_j=list_number.indexOf(Math.max(...list_number));
+
+  success();
+  // let re1 = document.getElementById("aaa");
+  // re1.textContent =list
+  // let re2 = document.getElementById("bbb");
+  // re2.textContent =list_number
+  // let re3 = document.getElementById("ccc");
+  // re3.textContent =Math.max(...list_number)
+}
 
   function main() {
     list=[];
@@ -120,8 +92,6 @@ function clickbt(j) {
         document.getElementById(i).textContent = jn_name[i];
       }
     }
-
-
 
 onload = () => {
   main()
