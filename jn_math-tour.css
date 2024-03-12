@@ -1,0 +1,34 @@
+body{
+    text-size-adjust: 50px;
+}
+
+div {
+    /* display: flex; */
+    /* justify-content: center;
+    align-items: center;     */
+    position: fixed;
+    margin: auto;
+    font-size: 15px;
+    line-height: 15px;
+    text-align: center;
+}
+
+/* .container{
+    display: grid;
+    gap:10px;
+} */
+
+/* .row{
+    float: left;
+} */
+
+.column{
+    width: 60px;
+    height: 60px;
+    background-color: #dddddd;
+    margin: -3px 2px -3px 2px;
+    float: left;
+    border-radius: 5px;
+    padding: 5px;
+    border-radius: 50%;
+}

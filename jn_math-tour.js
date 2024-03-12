@@ -1,6 +1,11 @@
 function bg(bb) {
   success_ck=false;
   for(i=0;i<22;i++){
+    if(mathtour_list[i]==1)
+      document.getElementById(i).style.backgroundColor="#ffc19e";
+  }
+
+  for(i=0;i<22;i++){
   if (list[i]==1){
     document.getElementById(i).style.backgroundColor="skyblue";
   } else {
@@ -8,11 +13,15 @@ function bg(bb) {
       document.getElementById(i).style.backgroundColor="green";
       success_ck=true;
     } else {
-      document.getElementById(i).style.backgroundColor="#dddddd";
+      if(mathtour_list[i]==1)
+        document.getElementById(i).style.backgroundColor="#d1b2ff";
+        else
+        document.getElementById(i).style.backgroundColor="#dddddd";
+      
     }
   }
   document.getElementById(bb).style.backgroundColor="red";
-}
+  }
 }
 
 
@@ -20,8 +29,11 @@ let count = 1;
 
 function success(){
   let re = document.getElementById("result");
-  const average = list.reduce((a,c)=>a+c)/list.length;
-  if(average==1){
+  math_sum=0;
+  for(i=0;i<22;i++)
+    math_sum=math_sum+list[i]*mathtour_list[i]
+ 
+  if(math_sum==10){
     re.textContent ="축하합니다. 성공하였습니다."
   } else {
     if(success_ck){
@@ -37,6 +49,8 @@ jn_left=['58','329','270','140','325','190','240','300','250','225','200','180',
 jn_top=['240','249','200','195','190','125','140','140','300','240','190','260','290','320','245','205','160','115','115','360','330','220'];
 
 path=[[14,15,21],[2,4,8],[1,4,6,7,9,10],[10,14,15,16],[1,2],[6,10,18],[2,5,7,10],[2,6],[1,9],[2,8,10,11],[2,3,5,6,9,11],[9,10,12,14],[11,13,14,19],[12,14,19,20],[0,3,11,12,13,15],[0,3,14,16,21],[3,15,17,18],[16,18],[5,16,17],[12,13],[13],[0,15]];
+
+mathtour_list=[1,1,1,1,1,1,0,0,0,0,1,0,0,0,1,0,0,1,0,0,1,0,0]
 
 
 function clickbt(j) {
@@ -64,12 +78,7 @@ function clickbt(j) {
   last_j=list_number.indexOf(Math.max(...list_number));
 
   success();
-  // let re1 = document.getElementById("aaa");
-  // re1.textContent =list
-  // let re2 = document.getElementById("bbb");
-  // re2.textContent =list_number
-  // let re3 = document.getElementById("ccc");
-  // re3.textContent =Math.max(...list_number)
+  
 }
 
   function main() {
@@ -90,6 +99,8 @@ function clickbt(j) {
       
       for (i = 0; i < 22; i++) {
         document.getElementById(i).textContent = jn_name[i];
+        if(mathtour_list[i]==1)
+          document.getElementById(i).style.backgroundColor="#d1b2ff";
       }
     }
 
