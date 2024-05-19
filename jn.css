@@ -3,32 +3,32 @@ body{
 }
 
 div {
-    /* display: flex; */
-    /* justify-content: center;
-    align-items: center;     */
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: fixed;
+    position: relative;
     margin: auto;
     font-size: 15px;
-    line-height: 15px;
-    text-align: center;
+    line-height: 30px;
+    
+    text-align: left;
 }
 
-/* .container{
-    display: grid;
-    gap:10px;
-} */
-
-/* .row{
-    float: left;
-} */
-
 .column{
-    width: 60px;
-    height: 60px;
+    position: absolute;
+    z-index: 1;
+    
     background-color: #dddddd;
+    /* 
     margin: -3px 2px -3px 2px;
     float: left;
-    border-radius: 5px;
     padding: 5px;
+    border-radius: 5px;
+    */
     border-radius: 50%;
+    font-size: 15px;
+    line-height: 13px;
+    align-items: center;
+    text-align: center;
 }

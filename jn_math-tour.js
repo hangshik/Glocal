@@ -45,8 +45,8 @@ function success(){
 }
 
 jn_name=['목포', '여수', '순천', '나주', '광양', '담양', '곡성', '구례', '고흥', '보성', '화순', '장흥', '강진', '해남', '영암', '무안', '함평', '영광', '장성', '완도', '진도', '신안'];
-jn_left=['58','329','270','140','325','190','240','300','250','225','200','180','140','105','120','85','100','80','140','140','40','0'];
-jn_top=['240','249','200','195','190','125','140','140','300','240','190','260','290','320','245','205','160','115','115','360','330','220'];
+jn_left=['70','320','267','140','325','190','245','300','250','225','200','180','140','100','120','85','100','80','140','130','40','5'];
+jn_top=['250','249','200','195','190','125','140','140','300','245','200','265','290','320','245','205','160','115','115','360','335','220'];
 
 path=[[14,15,21],[2,4,8],[1,4,6,7,9,10],[10,14,15,16],[1,2],[6,10,18],[2,5,7,10],[2,6],[1,9],[2,8,10,11],[2,3,5,6,9,11],[9,10,12,14],[11,13,14,19],[12,14,19,20],[0,3,11,12,13,15],[0,3,14,16,21],[3,15,17,18],[16,18],[5,16,17],[12,13],[13],[0,15]];
 
@@ -56,7 +56,7 @@ mathtour_list=[1,1,1,1,1,1,0,0,0,0,1,0,0,0,1,0,0,1,0,0,1,0,0]
 function clickbt(j) {
   if(Math.max(...list)==0 || (list[j]==0 && path[parseInt(last_j)].includes(j))){
     const element = document.getElementById(j);
-    element.innerText = jn_name[j]+number;
+    element.innerText = jn_name[j]+"\n"+number;
     list_number[j] = number;
     number++;
     list[j]=1;
@@ -86,12 +86,15 @@ function clickbt(j) {
     list_number=[];
     count=1;
     number = 1;
+    document.imgp.src="jn_img.png";
+    document.imgp.width="380";
+
     let tag = "<div class='container'>";
       for (i = 0; i < 22; i++) {
         list.push(0);
         list_number.push(0);
-        tag += "<div class='column' id='"+i+"' style=width:30px;height:30px;left:"+jn_left[i]+"px;top:"+jn_top[i]+"px; onclick='clickbt("+i+")'></div>";
-      }
+        tag += "<div class='column' id='"+i+"' style=width:40px;height:40px;left:"+(jn_left[i]-180)+"px;top:"+(jn_top[i]-75)+"px; onclick='clickbt("+i+")'></div>";      }
+      
       tag += "</div>";
       area.innerHTML = tag;
       console.log=tag;
